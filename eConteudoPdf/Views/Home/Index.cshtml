@@ -1,0 +1,27 @@
+﻿@model eConteudoPdf.Models.Conteudo
+
+@using (Html.BeginForm("Index", "Home", FormMethod.Post, new { role = "form" }))
+{
+    <div class="jumbotron">
+        <h2>Caminho do arquivo</h2>      
+        <div class="row">
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.caminho, new { htmlAttributes = new { @class = "form-control", placeholder = "Obrigatório" } })
+                @Html.ValidationMessageFor(model => model.caminho, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-10">
+                <input type="submit" value="Extrair" class="btn btn-primary" />                
+            </div>
+        </div>
+        <h2>Resultado</h2>
+        <div class="row">
+            <div class="col-md-10">
+                @Html.TextAreaFor(model => model.conteudo, new { htmlAttributes = new { @class = "form-control", @cols = 500, @rows = 100 } })   
+            </div>
+        </div>       
+    </div>
+}
+
+
